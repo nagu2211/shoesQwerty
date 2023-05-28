@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+*,
+*::before,
+*::after {
+  list-style-type: none;
+  text-decoration: none;
+}
+
+
+
+#mostPopular {
+  font-size: 62.5%;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+@media (min-width: 1440px) {
+    #mostPopular  {
+    zoom: 1.5;
+  }
+}
+
+@media (min-width: 2560px) {
+    #mostPopular  {
+    zoom: 1.7;
+  }
+}
+
+@media (min-width: 3860px) {
+    #mostPopular {
+    zoom: 2.5;
+  }
+}
+
+
+
+.container{
+    max-width: 124rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+}
+.text-center{
+    text-align: center;
+}
+.section-heading{
+    font-size: 3rem;
+    color: var(--primary);
+    padding: 2rem 0;
+}
+#tranding{
+    padding: 4rem 0;
+}
+@media(max-width:1440px){
+    #tranding{
+        padding: 7rem 0;
+    }
+}
+#tranding .tranding-slider{
+    height: 52rem;
+    padding: 2rem 0;
+    position: relative;
+}
+@media(max-width:500px){
+    #tranding .tranding-slider{
+        height: 45rem;
+    }
+}
+.tranding-slide{
+    width: 37rem;
+    height: 42rem;
+    position: relative;
+}

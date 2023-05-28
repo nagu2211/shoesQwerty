@@ -1,0 +1,56 @@
+/* nav */
+nav {
+  z-index: 100;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  background: linear-gradient(
+    270deg,
+    rgba(252, 173, 114, 1) 26%,
+    rgba(255, 98, 109, 1) 68%
+  );
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* a shading at the end so that the finish is not so rough */
+.navbar::after {
+  content: "";
+  display: block;
+  height: 50px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+/* logo */
+.logo {
+  color: #ffffff;
+  font-size: 28px;
+}
+.Q{
+  color: #ffffff;
+}
+
+/*iconos*/
+.iconNav {
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  background-color: #232227;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 0px 2px;
+  cursor: pointer;
+  transition: all .3s;
+}

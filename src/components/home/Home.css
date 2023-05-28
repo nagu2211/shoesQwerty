@@ -1,0 +1,79 @@
+/*fondo*/
+.bg{
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(rgba(0,0,0,0.50),rgba(0,0,0,0.50)),url(https://images.pexels.com/photos/250356/pexels-photo-250356.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+/* content */
+.contHome{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+.contHome h1 {
+    font-size: 4.375rem;
+    margin-top: 80px;
+}
+.contHome p {
+    margin: 20px auto;
+    font-weight: 100;
+    font-size: 1.25rem;
+    line-height: 25px;
+}
+/* boton "ver Mas" */
+.cta {
+    position: relative;
+    margin: auto;
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+}
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #ff626d;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+.cta span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #fff;
+}
+.cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #fff;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+.cta:hover:before {
+    width: 100%;
+    background: linear-gradient(to top, #ff626d, #fcad72);
+}
+.cta:hover svg {
+    transform: translateX(0);
+}
+.cta:active {
+    transform: scale(0.95);
+}
