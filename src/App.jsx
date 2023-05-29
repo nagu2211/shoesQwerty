@@ -5,6 +5,8 @@ import Reviews from './components/reviews/Reviews'
 import Contact from './components/contact/Contact'
 import Qwerty from './components/brand-qwerty/Qwerty'
 import './app.css'
+
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {

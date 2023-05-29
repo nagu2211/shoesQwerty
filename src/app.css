@@ -2,6 +2,9 @@
   --primary: #ec994b;
   --white: #ffffff;
   --bg: #f5f5f5;
+  --gradprimary : #fcad72;
+  --gradsecondary : #ff626d;
+  --darkblack : #232227;
 }
 
 ::-webkit-scrollbar {

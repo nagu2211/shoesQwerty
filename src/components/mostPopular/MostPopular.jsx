@@ -21,64 +21,49 @@ const MostPopular = () => {
 
   return (
     <section className="section" id="mostPopular">
-    <section id="tranding">
+      <h1 className="subtitle">Most Popular Products.</h1>
+      <div className="containerxl">
       <div className="container">
-        <h3 className="text-center section-subheading">- popular Delivery -</h3>
-        <h1 className="text-center section-heading">Trending food</h1>
-      </div>
-      <div className="container">
-        <div className="swiper tranding-slider">
-          <div className="swiper-wraper">
-            {/* Slide-start */}
-            {products.map((prod) => {
-              return (
-                <div key={prod.id} className="swiper-slide tranding-slide">
-                  <div className="tranding-slide-img">
-                    <img src={prod.img} alt="qwertyShoe" />
+        <input type="radio" name="slider" id="s1" />
+        <input type="radio" name="slider" id="s2" />
+        <input type="radio" name="slider" id="s3" />
+        <input type="radio" name="slider" id="s4" />
+        <input type="radio" name="slider" id="s5" />
+        <div className="cards">
+          {products.map((prod, index) => {
+            const slideId = `s${index + 1}`;
+            return (
+              <label key={prod.id} htmlFor={slideId} id={`slide${index + 1}`}>
+                <div className="card">
+                  <div className="infos">
+                    <button className="btn-new">new</button>
+                    <span className="name">{prod.name}.</span>
+                    <span className="price">$ {prod.price}</span>
+                    <button className="btn-details">
+                    GO TO CATALOG
+                    </button>
+                    <div className="image">
+                    <img src={prod.img} alt="qwerty-shoe" />
                   </div>
-                  <div className="tranding-slide-content">
-                    <h1 className="food-price">{prod.price}</h1>
-                    <div className="tranding-slide-content-bottom">
-                      <h2 className="food-name">{prod.name}</h2>
-                      <h3 className="food-rating">
-                        <span>4.5</span>
-                        <div className="rating">
-                          <span className="material-symbols-outlined">
-                            star_rate
-                          </span>
-                          <span className="material-symbols-outlined">
-                            star_rate
-                          </span>
-                          <span className="material-symbols-outlined">
-                            star_rate
-                          </span>
-                          <span className="material-symbols-outlined">
-                            star_rate
-                          </span>
-                          <span className="material-symbols-outlined">
-                            star_rate
-                          </span>
-                        </div>
-                      </h3>
+                    <div className="actions">
+                      <span className="material-symbols-outlined">
+                        favorite
+                      </span>
+                      
+                      <span className="qwertybot">{prod.category}</span><span>shoes</span>
+                     
+                      <span className="material-symbols-outlined">
+                        shopping_bag
+                      </span>
                     </div>
                   </div>
                 </div>
-              );
-            })}
-            {/* Slide-end */}
-          </div>
-          <div className="tranding-slider-control">
-            <div className="swiper-button-prev slider-arrow">
-              <ion-icon name="arrow-back-outline"></ion-icon>
-            </div>
-            <div className="swiper-button-next slider-arrow">
-              <ion-icon name="arrow-forward-outline"></ion-icon>
-            </div>
-            <div className="swiper-pagination"></div>
-          </div>
+              </label>
+            );
+          })}
         </div>
       </div>
-    </section>
+      </div>
     </section>
   );
 };
