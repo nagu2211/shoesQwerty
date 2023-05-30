@@ -1,4 +1,73 @@
-#reviews{
-    display: flex;
-    align-items: center;
+#reviews {
+  background-image: url(../../assets/bg.svg);
+  object-fit: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.subtitleRev{
+    font-size: 1.9rem;
+    text-align: center;
+    color: var(--white);
+  }
+.opiniones {
+  background-color: #333335;
+}
+.box {
+  margin-top: 200px;
+}
+.user {
+  padding: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.user img {
+  border-radius: 50%;
+  object-fit: cover;
+  height: 6rem;
+  width: 6rem;
+  border: 1px solid #fcad72;
+  position: absolute;
+  margin-top: -7rem;
+}
+.caja {
+  background: #333134;
+  text-align: start;
+  position: relative;
+  box-shadow: 1rem 2rem 1rem rgba(38, 38, 38, 0.5);
+  flex: 1 1 12rem;
+  border-radius: 0.5rem;
+  width: 90%;
+}
+.caja .user .fa-comment {
+  font-size: 1.5rem;
+  color: #5d5b5e;
+}
+.caja .user h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  display: inline-block;
+  padding-left: 0.5rem;
+}
+
+.caja .user .stars i {
+  color: #ff626d;
+  font-size: 0.8rem;
+  padding: 1rem 0;
+}
+.caja .comentarios {
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 1rem 0;
+}
+
+/*carousel*/
+.carousel {
+  padding: 5rem;
+  color: #fff;
+  height: 50vh;
+  width: 90vw;
+  margin-left: 92px;
+  margin-bottom: 60px;
 }

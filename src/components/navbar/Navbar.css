@@ -21,10 +21,12 @@ nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 10px 20px;
+}
+a{
+  padding: 10px 20px;
   color: white;
   text-decoration: none;
   font-weight: bold;
-  cursor: pointer;
 }
 /* a shading at the end so that the finish is not so rough */
 .navbar::after {
@@ -42,7 +44,7 @@ nav ul li {
   color: #ffffff;
 }
 
-/*iconos*/
+/*icons*/
 .iconNav {
   border: none;
   color: #ffffff;

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const navbar = () => {
   return (
@@ -15,25 +15,27 @@ const navbar = () => {
       </div>
       <ul className="menu active" id="menu">
         <li>
-          <Link to="home" smooth={true} spy={true} isDynamic={true}>
+          <Link to="/">
             Home
           </Link>
         </li>
         <li>
-          <Link to="mostPopular" smooth={true} spy={true} isDynamic={true}>
+          <Link to="/mostpopular">
             +Popular
           </Link>
         </li>
         <li>
-          Catalogo
+          <Link to="/catalog">
+          Catalog
+          </Link>
         </li>
         <li>
-          <Link to="reviews" smooth={true} spy={true} isDynamic={true}>
+          <Link to="/reviews">
             Reviews
           </Link>
         </li>
         <li>
-          <Link to="contact" smooth={true} spy={true} isDynamic={true}>
+          <Link to="/contact">
             Contact
           </Link>
         </li>
