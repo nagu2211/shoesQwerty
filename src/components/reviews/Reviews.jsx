@@ -5,20 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import NewReview from "./NewReview";
+
 const Reviews = () => {
-
-  
-  const [newReview,setNewReview] = useState(false)
-
-  const handleClick = () => {
-    setNewReview(true)
-  }
-
- // call to firestore
+  const [showNewReview, setShowNewReview] = useState(false);
   const [customerRev, setCustomerRev] = useState([]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     const db = getFirestore();
     const itemsCollection = collection(db, "reviews");
     getDocs(itemsCollection).then((snapshot) => {
@@ -30,7 +22,24 @@ const Reviews = () => {
     });
   }, []);
 
-  //settings of carousel
+  const handleFormSubmit = () => {
+    const db = getFirestore();
+    const itemsCollection = collection(db, "reviews");
+    getDocs(itemsCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setCustomerRev(docs);
+    });
+
+    setShowNewReview(false);
+  };
+
+  const handleClick = () => {
+    setShowNewReview(true);
+  };
+
   const settings = {
     dots: false,
     infinite: true,
@@ -66,19 +75,20 @@ const Reviews = () => {
     ],
   };
 
-
-  if(newReview == false){
-
+  if (showNewReview) {
+    return <NewReview onSubmit={handleFormSubmit} />;
+  } else {
     return (
       <section className="section" id="reviews">
-      <h1 className="subtitleRev" >Customer Reviews.</h1>
-      <div className="btnRev">
-      <button className="shadow__btn" onClick={handleClick}>New Review</button>
-      </div>
-      <div className="carousel">
-        <Slider {...settings}>
-          {customerRev.map((customer) => {
-            return (
+        <h1 className="subtitleRev">Customer Reviews.</h1>
+        <div className="btnRev">
+          <button className="shadow__btn" onClick={handleClick}>
+            New Review
+          </button>
+        </div>
+        <div className="carousel">
+          <Slider {...settings}>
+            {customerRev.map((customer) => (
               <div className="box" key={customer.id}>
                 <div className="caja">
                   <div className="user">
@@ -91,17 +101,12 @@ const Reviews = () => {
                   </div>
                 </div>
               </div>
-            );
-          })}
-        </Slider>
-      </div>
-    </section>
-  );
-} else {
-  return(
-  <NewReview newReview={true}/>
-  )
-}
+            ))}
+          </Slider>
+        </div>
+      </section>
+    );
+  }
 };
 
 export default Reviews;

@@ -1,39 +1,55 @@
 import React, { useState } from "react";
 import "./NewReview.css";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
+import toast, { Toaster } from "react-hot-toast";
 
-const NewReview = ({newReview}) => {
-
-    //post in database
-
+const NewReview = ({ onSubmit }) => {
   const [avatar, setAvatar] = useState("");
   const [name, setName] = useState("");
   const [review, setReview] = useState("");
 
-  const db = getFirestore();
-
-  const order = {
-    avatar,
-    name,
-    review,
-  };
-
-  const orderCollection = collection(db, "reviews");
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    addDoc(orderCollection, order);
+
+    if (avatar === "" || name === "" || review === "") {
+      toast.error("Please fill in all the fields.");
+    } else {
+      const db = getFirestore();
+      const orderCollection = collection(db, "reviews");
+
+      const order = {
+        avatar,
+        name,
+        review,
+      };
+
+      addDoc(orderCollection, order)
+        .then(() => {
+          toast.success("Review submitted successfully!");
+          setAvatar("");
+          setName("");
+          setReview("");
+          setTimeout(() => {
+            onSubmit();
+          }, 3000);
+          
+        })
+        .catch((error) => {
+          toast.error("An error occurred while submitting the review.");
+          console.error("Error adding document: ", error);
+        });
+    }
   };
 
   return (
     <section className="section" id="newReview">
       <div className="container-form">
         <div className="card">
-          <div className="card2">
+        <div className="card2">
             <form className="form" onSubmit={handleSubmit}>
-              <p id="heading">Review</p>
+            <p id="heading">Review</p>
               <div className="field">
-                <svg
+              <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="48"
                   viewBox="0 -960 960 960"
@@ -81,18 +97,26 @@ const NewReview = ({newReview}) => {
                 <textarea
                   type="textarea"
                   className="input-textarea"
-                  placeholder="(max-character:200)"
+                  placeholder="(max-character:220)"
                   maxLength={200}
                   onChange={(e) => setReview(e.target.value)}
                 />
               </div>
-              <button className="button3">Send Review</button>
+              <button className="button3" type="submit">Send Review</button>
             </form>
           </div>
         </div>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </section>
   );
 };
 
 export default NewReview;
+
+         
+              
+                
+              
+              
+              
