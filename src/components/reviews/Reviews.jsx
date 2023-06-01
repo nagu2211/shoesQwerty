@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 import NewReview from "./NewReview";
+import "./StarRating.css";
 
 const Reviews = () => {
   const [showNewReview, setShowNewReview] = useState(false);
@@ -97,6 +98,31 @@ const Reviews = () => {
                     <h3>{customer.name}</h3>
                     <div className="comentarios">
                       <p>{customer.review}</p>
+                    </div>
+                    <div>
+                      {/* Star Ratings Recibiendo informacion desde firebase */}{" "}
+                      {[...Array(5)].map((star, i) => {
+                        const ratingValue = i + 1;
+                        return (
+                          <label key={i}>
+                            <input
+                              type="radio"
+                              name="rating"
+                              value={customer.rating}
+                            />
+
+                            <span
+                              className={
+                                ratingValue <= customer.rating
+                                  ? "material-symbols-outlined star-selected"
+                                  : "material-symbols-rounded star-unselected"
+                              }
+                            >
+                              star
+                            </span>
+                          </label>
+                        );
+                      })}{" "}
                     </div>
                   </div>
                 </div>

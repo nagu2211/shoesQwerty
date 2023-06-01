@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import "./NewReview.css";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
 import toast, { Toaster } from "react-hot-toast";
+import StarRating from "./StarRating";
 
 const NewReview = ({ onSubmit }) => {
   const [avatar, setAvatar] = useState("");
   const [name, setName] = useState("");
   const [review, setReview] = useState("");
+  const [rating, setRating] = useState(null); // Agrega el estado para la calificación
 
+  const handleRatingChange = (ratingValue) => {
+    setRating(ratingValue); // Actualiza el estado de la calificación
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -21,6 +26,7 @@ const NewReview = ({ onSubmit }) => {
         avatar,
         name,
         review,
+        rating
       };
 
       addDoc(orderCollection, order)
@@ -102,6 +108,7 @@ const NewReview = ({ onSubmit }) => {
                   onChange={(e) => setReview(e.target.value)}
                 />
               </div>
+              <StarRating onRatingChange={handleRatingChange} /> {/* Pasa la función handleRatingChange como prop */}
               <button className="button3" type="submit">Send Review</button>
             </form>
           </div>
